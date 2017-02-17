@@ -1,0 +1,55 @@
+<ion-view title="{{'Sales Quote'| translate}}">
+    <ion-content align="left" ng-init="editData = 'Select'">
+        <ion-header-bar  class="bar-positive">
+            <div class="buttons">
+                <button class="button btntop" ui-sref="app.contactupdate({leadno: contactDetail[0].Leadno, Id: contactDetail[0].Id}) " >
+                    {{'Edit Contact'| translate}}  
+                </button>
+                <button class="button btntop" ui-sref="app.fna({leadno: contactDetail[0].Leadno})" >
+                    {{'FNA'| translate}} 
+                </button>
+                <button class="button btntop" ui-sref="app.newSalesQuote({leadno: contactDetail[0].Leadno})" >
+                    {{'NSQ'| translate}}  
+                </button>
+
+            </div>
+            <h1 class="title"></h1>
+            <div class="buttons">
+                <button class="button btntop" ui-sref="app.preview({leadno: contactDetail[0].Leadno})" >
+                    {{'Preview'| translate}}  
+                </button>
+            </div>
+        </ion-header-bar><br><br><br>
+        <div class="item item-text-wrap cardBackground padding">
+          Life Insurance: Protect Those That Matter To You Most
+        </div><br>
+
+        <form name="myForm" ng-init="salesCurrency.all = 'all'">
+            <label class="control-label" align="left" >&nbsp;&nbsp;{{"Currency:" | translate}}</label><br><br>
+            <label>
+                &nbsp;&nbsp;<input type="radio" name="boolean" ng-model="salesCurrency.all" value="all" ng-click="getAll(all)">
+                All
+            </label>
+            <label>
+            <input type="radio"  name="boolean"  ng-model="salesCurrency.usd" value="usd" ng-click="getUsd(usd)">
+                USD 
+            </label>
+            <label>
+                <input type="radio" name="boolean" ng-model="salesCurrency.idr" value="idr" ng-click="getIdr(idr)">
+                IDR
+            </label>
+        </form>
+        <br>
+        <form>
+            <div class="list">
+              <label class="item item-input item-select"> 
+                <span class="input-label">{{'Select Product:' | translate}}</span>
+                <select ng-model="editData" ng-change="updateBox(editData)">
+                  <option selected="selected" value="Select" disabled>Select</option>
+                  <option ng-repeat="data in basicPlan" value="{{data}}">{{data.basicPlanName}}</option>
+                </select>
+              </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

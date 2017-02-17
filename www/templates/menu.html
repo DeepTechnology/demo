@@ -1,0 +1,71 @@
+<ion-side-menus enable-menu-with-back-views="true" >
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable bar-positive">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left" style="background-color: #fb5557;">
+                <button id="leftMenu" class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-nav-view name="menuContent"></ion-nav-view>
+
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left" class="loginBg" >
+        <ion-header-bar class="bar-stable bar-positive" style="color: #01b070; background-color: #fb5557; border-color: #fb5557;">
+            <h1 class="title">{{"Swordfish" | translate}}</h1>
+        </ion-header-bar>
+        <ion-content style="background-color: #fb5557;">
+            <ion-list id="menuLinks">
+                <ion-item menu-close href="#/app/dashboard">
+                    <i class="icon ion-ios-home" style="color: #d05454;"></i> 
+                    {{"Dashboard" | translate}}
+                </ion-item>
+
+                <ion-item menu-close href="#/app/userProfile">
+                    <i class="icon ion-ios-personadd" style="color: #3faba4;"></i> 
+                    {{"User Profile" | translate}} 
+                </ion-item>
+
+                <ion-item menu-close href="#/app/appointments">
+                    <i class="icon ion-ios-calendar" style="color: #3faba4;"></i>  
+                    {{"Appointments" | translate}}
+                </ion-item>
+
+                <ion-item menu-close href="#/app/birthday"> 
+                    <i class="icon ion-ios-calendar-outline" style="color: #3faba4;"></i> 
+                    {{"Birthday" | translate}}
+                </ion-item>
+
+                <ion-item menu-close href="#/app/contacts">
+                    <i class="icon ion-ios-people" style="color: #3faba4;"></i>  
+                    {{"Contacts" | translate}}
+                </ion-item>
+
+                <ion-item menu-close href="#/app/calendarui">
+                    <i class="icon ion-ios-calendar-outline" style="color: #3faba4;"></i>  
+                    {{"Calendar" | translate}}
+                </ion-item>
+
+                <ion-item menu-close href="#/app/proposal">
+                    <i class="icon ion-android-checkbox" style="color: #3faba4;"></i>  
+                    {{"Proposal" | translate}}
+                </ion-item>
+
+                <ion-item menu-close href="#/app/salesQuote">
+                    <i class="icon ion-ios-cart" style="color: #3faba4;"></i>  
+                    {{"Sales Quotes" | translate}}
+                </ion-item>
+
+                <ion-item menu-close href="#/app/setting">
+                    <i class="icon ion-ios-settings-strong" style="color: #3faba4;"></i> 
+                    {{"Settings" | translate}}
+                </ion-item>
+
+                <ion-item menu-close href="#/login" ng-click="logout()"><i class="icon ion-log-out"></i> {{"Log Out" | translate}}</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

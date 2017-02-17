@@ -1,0 +1,151 @@
+<ion-view title="{{'Sales Quote' | translate}}">
+	<ion-content class="has-header padding">
+		<div class="list">
+			<div class="item item-text-wrap cardBackground heading" ><center>Sales Quote Insured Policy Holder</center></div><br>
+			<div class="item item-text-wrap cardBackground" >Life Insurance: Protect Those That Matter To You Most</div><br>
+			<div class="item item-divider heading"><center>{{'Sales Quote' | translate}}</center></div>
+			<!-- <label class="item item-input item-stacked-label">
+				<span class="input-label">Quotation Number</span>
+				<input type="Readonly" placeholder="QT00000" ng-model="quoteDetail[0].QuoteNo" readonly/>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Product</span>
+				<input type="text" placeholder="product" ng-model="quoteDetail[0].ProductName" readonly/>
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Quotation Date</span>
+				<input type="text" placeholder="quotatonDate" ng-model="quoteDetail[0].ProposalStateDate" readonly/>
+			</label> -->
+			<a class="item" href="#">
+                Quotation Number:
+                <span class="item-note">
+                    {{quoteDetail[0].QuoteNo}}
+                </span>
+            </a>
+                <div class="item item-text-wrap">
+                    Product:&nbsp;{{quoteDetail[0].ProductName}}
+            	</div>
+            <a class="item" href="#">
+                Quotation Date:
+                <span class="item-note text">
+                    {{quoteDetail.ProposalStateDate | date:'dd/MM/yyyy'}}
+                </span>
+            </a>
+		</div>
+
+		<!-- Insured column-->
+
+		<div class="list">
+			<div class="item item-divider heading"><center>{{'Insured' | translate}}</center></div>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Name:</span>
+				<input type="text" placeholder="John" ng-model="contactDetail[0].ContactName">
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Date of Birth:</span>
+				<input type="date" placeholder="DD/MM/YEAR" ng-model="data.contactBirthdDate" ng-change="ageCalc(data.contactBirthdDate, 'P')">
+			</label>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Age:</span>
+				<input type="text" placeholder="46" ng-model="insuredAge" readonly/>
+			</label>
+			<label class = "item item-input item-select">
+				<div class="input-label">
+					Gender:
+				</div>
+				<select ng-model="contactDetail[0].Gender">{{contactDetail[0].Gender}}
+					<option  selected disabled>Select</option>
+					<option value="M">Male</option>
+					<option value="F">Female</option>
+				</select>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Occupation Class:
+				</div>
+				<select ng-model="occupationClass.insured">
+					<option value="CLSS1">Class 1</option>
+					<option value="CLSS2">Class 2</option>
+					<option value="CLSS3">Class 3</option>
+					<option value="CLSS4">Class 4</option>
+				</select>
+			</label>
+		</div> 
+
+		<!-- policy holder column-->
+		<form name="policyholderForm" novalidate>
+			<div class="list">
+				<div class="item item-divider heading"><center>{{'Policy Holder' | translate}}</center></div>
+				<label class = "item item-input item-select">
+					<div class = "input-label">
+						Relationship:
+					</div>
+					<select ng-model="relation" disabled>
+						<option selected >Select</option>
+						<option>Child</option>
+						<option>Creditor</option>
+						<option>Employer</option>
+						<option>Grandchildren</option>
+						<option>Grandparent</option>
+						<option>Organization</option>
+						<option>Others</option>
+						<option>Parent</option>
+						<option>Relative</option>
+						<option>Self</option>
+						<option>Sibling</option>
+						<option>Spouse</option>
+					</select>
+				</label>
+				<label class="item item-input item-stacked-label" ng-class="{ 'has-error': policyholderForm.contactName.$invalid && policyholderForm.contactName.$dirty }">
+					<span class="input-label">Name:</span>
+					<input type="text" name="contactName" placeholder="Suhr" ng-model="policyHolder.ContactName" required>
+					<div class="help-block error-block basic-block validation-errors" ng-show="policyholderForm.$submitted || policyholderForm.contactName.$touched">
+		            <p class="help-block error-block basic-block validation-errors" ng-show="policyholderForm.contactName.$error.required">Please Input Name</p>
+		          </div>
+				</label>
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Date of Birth:</span>
+					<input type="date"  placeholder="DD/MM/YEAR" ng-model="data1.policyHolderBirthdDate" ng-change="ageCalc(data1.policyHolderBirthdDate, 'L')">
+				</label>
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Age:</span>
+					<input type="text" placeholder="46" ng-model="policyHolderAge" readonly/>
+				</label>
+				<label class="item item-input item-select" ng-class="{ 'has-error': policyholderForm.policyHoldergender.$invalid && policyholderForm.policyHoldergender.$dirty }">
+					<div class = "input-label">
+						Gender:
+					</div>
+					<select name="policyHoldergender" ng-model="policyHolder.Gender" required>
+						<option value="" selected disabled>Select</option>
+						<option value="M">Male</option>
+						<option value="F">Female</option>
+					</select>
+				</label>
+				<div class="help-block error-block basic-block validation-errors" ng-show="policyholderForm.$submitted || policyholderForm.policyHoldergender.$touched">
+		            <p class="help-block error-block basic-block validation-errors" ng-show="policyholderForm.policyHoldergender.$error.required">Please Select Gender Value</p>
+		          </div>
+				<label class = "item item-input item-select">
+					<div class = "input-label">
+						Occupation Class:
+					</div>
+					<select ng-model="occupationClass.policy">
+						<option value="CLSS1">Class 1</option>
+						<option value="CLSS2">Class 2</option>
+						<option value="CLSS3">Class 3</option>
+						<option value="CLSS4">Class 4</option>
+					</select>
+				</label>
+			</div>
+			<padding><br>
+				<div align="center">
+					<button class="button button-positive" ng-click="myGoBack()">
+					{{'Back' | translate}}
+					</button>
+					<button  class="button button-positive"  ng-click="policyholderForm.$valid &&  save()">
+					{{'Save & Next' | translate}}
+					</button>
+				</div>
+			</padding>
+		</form>
+	</ion-content>
+</ion-view>

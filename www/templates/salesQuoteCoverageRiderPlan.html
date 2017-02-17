@@ -1,0 +1,46 @@
+<ion-view title="{{'Sales Quote'| translate}}">
+	<ion-content class="has-header padding" align="left">
+		<div class="item item-text-wrap cardBackground heading" ><center>Sales Quote Coverage Rider Plan</center></div><br>
+		<div class="item item-text-wrap cardBackground" >Life Insurance: Protect Those That Matter To You Most</div>
+			
+		<form name="myForm" >
+
+			<label class="control-label" align="left"></label><br>
+			<div class="item item-divider heading">{{"Plan Type:" | translate}}</div><br>
+			
+			<label>
+				<input type="radio" name="boolean"  ng-model="rider.l1" value="L1" ng-click="getlOne(l1)">
+				L1  
+			</label>
+
+			<label>
+				<input type="radio"  name="boolean"  ng-model="rider.l1" value="P1" ng-click="getPone(p1)">
+				P1 
+			</label>
+
+		</form><br>
+
+		<form>
+			<div class="list">
+				<label class="item item-input item-select">
+					<span class="input-label">{{'Select Product:' | translate}}</span>
+					<select name="fund" ng-model="data">
+						<option value="" disabled>Select</option>
+						<option ng-repeat="plan in riderPlan"  value="{{plan}}">{{ plan.riderPlanName }}</option>
+					</select> 
+				</label>
+			</div>
+
+			<padding><br>
+				<div align="center">
+					<button class="button button-positive" ng-click="myGoBack()">
+						{{'Back' | translate}}
+					</button>
+					<button  class="button button-positive" ng-click="next(data)">
+						{{'Save & Next' | translate}}
+					</button>
+				</div>
+			</padding>
+		</form>
+	</ion-content>
+</ion-view>

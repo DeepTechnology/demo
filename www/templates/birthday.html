@@ -1,0 +1,70 @@
+<ion-view hide-nav-bar="true">
+    <ion-header-bar align-title="center" class="bar bar-positive br-header">
+        <div class="buttons">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+            <div style="margin-left: 20px;" class="item-input-inset" ng-if="hasFilter">
+                <label class="item-input-wrapper textbox-search">
+                    <i class="icon ion-ios7-search placeholder-icon"></i>
+                    <input type="search" placeholder="Search" ng-model="searchText" ng-keyup="filterProduct(searchText);">
+                </label>
+            </div>
+        </div>
+        <h1 class="title" ng-show="!hasFilter">{{'Birthday'| translate}}</h1>
+        <div class="buttons">
+            <a data-tap-disabled="true" class=" button button-icon icon positive" ng-click="openFilters(hasFilter);" ng-class="{'ion-ios-search-strong':!hasFilter,'ion-close-circled':hasFilter}" style="z-index:9999;"></a>
+        </div>
+    </ion-header-bar>
+    <ion-content ng-init="month = '12'">
+        <form>
+            <label class = "item item-input item-select">
+                <div class = "input-label">
+                    Month:
+                </div>
+                <select ng-model="month" ng-change="monthChange(month)">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </label>
+            <div class="item-accordion" ng-repeat="user in birthdayList | filter: searchProduct">
+                <a class="{active: isGroupShown($index)} item item-divider" ng-click="toggleGroup($index)">
+                    <i class = "icon" ng-class="isGroupShown($index) ? 'ion-ios-minus-outline' : 'ion-plus-circled'" style="float:right; color:#797474;"></i>
+                    Name:&nbsp;<h3 style="color:#4c87b9;">{{user.ContactName}}</h3>
+                    Company:&nbsp;{{user.CompanyName}}
+                </a>
+                <div ng-show="isGroupShown($index)">
+                    <a class="item " href="#">
+                        JobTitle:
+                        <span class="badge">{{user.JobTitle}}</span>
+                    </a>
+                    <a class="item " href="#">
+                        Gender:
+                        <span class="badge">{{user.Gender}}</span>
+                    </a>
+                    <a class="item " href="#">
+                        Mobile Phone:
+                        <span class="badge">{{user.Mobileno}}</span>
+                    </a>
+                    <a class="item " href="#">
+                        DOB:
+                        <span class="badge">{{user.BirthdDate | date:'MM/dd/yyyy'}}</span>
+                    </a>
+                    <a class="item " ui-sref="app.contactupdate({leadno: user.Leadno, id: user.Id})">
+                        Read More:
+                        <span class="badge badge-assertive">Edit</span>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view> 

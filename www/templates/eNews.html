@@ -1,0 +1,8 @@
+<ion-view view-title="{{'E-News' | translate}}" >
+	<ion-content>
+		<ion-item class="E-News" ng-repeat="news in newsList">
+			<div class="col" style="text-shadow: none; color: #5b9bd1;">{{news.Title}}</div>
+			<div class="col" style="white-space: normal;" ng-bind-html="news.NewDescription"></div>
+		</ion-item>
+	</ion-content>
+</ion-view>

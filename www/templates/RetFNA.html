@@ -1,0 +1,87 @@
+<ion-view title="{{'Retirement' | translate}}">
+    <ion-nav-buttons side="right">
+        <button class="button btntop" ng-click="saveRet()">
+            {{'Save'| translate}}   
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header padding">
+        <form name="retirementForm" novalidate>
+            <div class="list">
+                <div class="item item-divider heading">
+                    <center>
+                        Get Started Today
+                    </center>
+                </div>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': retirementForm.currentAge.$invalid && retirementForm.currentAge.$dirty }">
+                    <span class="input-label line-text">
+                        Current Age:
+                    </span>
+                    <input type="text" name="currentAge" ng-model="data.Age" placeholder="15" value="40" maxlength="3" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="retirementForm.$submitted || retirementForm.currentAge.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="retirementForm.currentAge.$error.required">Must enter current age</p>
+                    </div>
+                </label>
+
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': retirementForm.retirementAge.$invalid && retirementForm.retirementAge.$dirty }">
+                    <span class="input-label line-text">
+                        Retire Age:
+                    </span>
+                    <input type="text" name="retirementAge"ng-model="data.RetirementAge"  placeholder="16" value="60" maxlength="3" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="retirementForm.$submitted || retirementForm.retirementAge.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="retirementForm.retirementAge.$error.required">Must enter retirement age</p>
+                    </div>
+                </label>
+
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': retirementForm.currentAnnual.$invalid && retirementForm.currentAnnual.$dirty }">
+                    <span class="input-label line-text">
+                        Current Annual Income:
+                    </span>
+                    <input type="text" name="currentAnnual" ng-model="data.CurrentAnnualIncome" placeholder="3" value="2,70,000" maxlength="18" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="retirementForm.$submitted || retirementForm.currentAnnual.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="retirementForm.currentAnnual.$error.required">Must enter current annual income</p>
+                    </div>
+                </label>
+
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': retirementForm.inflationRate.$invalid && retirementForm.inflationRate.$dirty }">
+                    <span class="input-label line-text">Inflation Rate(%):</span>
+                    <input type="text"  name="inflationRate" ng-model="data.InflationRate" placeholder="3" value="14.00" maxlength="5" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="retirementForm.$submitted || retirementForm.inflationRate.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="retirementForm.inflationRate.$error.required">Must enter inflation rate</p>
+                    </div>
+                </label>
+
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': retirementForm.lifeExpectancy.$invalid && retirementForm.lifeExpectancy.$dirty }">
+                    <span class="input-label line-text">
+                        Your life expentancy:
+                    </span>
+                    <input type="text" name="lifeExpectancy" ng-model="data.LifeExpentancy" placeholder="3" value="80" maxlength="3" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="retirementForm.$submitted || retirementForm.lifeExpectancy.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="retirementForm.lifeExpectancy.$error.required">Must enter life expentancy age</p>
+                    </div>
+                </label>
+
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': retirementForm.expectedAverage.$invalid && retirementForm.expectedAverage.$dirty }" >
+                    <span class="input-label line-text">
+                        Expected average annual return of investment:
+                    </span>
+                    <input type="text" name="expectedAverage" ng-model="data.AnnualAverageRoi" placeholder="3" value="10.00" maxlength="5" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="retirementForm.$submitted || retirementForm.expectedAverage.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="retirementForm.expectedAverage.$error.required">Must enter expected average annual return</p>
+                    </div>
+                </label>
+
+                <padding><br>
+                    <div align="center">
+                        <button class="button button-positive" ng-click="myGoBack()">
+                            {{'Back' | translate}} 
+                        </button>
+                        <button   class="button button-positive" ng-click="retirementForm.$valid && retCalculate()">
+                            {{'Calculate' | translate}}
+                        </button>
+                    </div>
+                </padding>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

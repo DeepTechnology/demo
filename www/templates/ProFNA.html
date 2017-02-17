@@ -1,0 +1,46 @@
+<ion-view title="{{'Protection' | translate}}">
+    <ion-nav-buttons side="right">
+        <button class="button btntop" ng-click="savePro()">
+            {{'Save'| translate}}   
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="has-header padding" ng-init="protectionForm.amountPercentage.$touched = false">
+        <form name="protectionForm" novalidate>
+            <div class="list">
+                <div class="item item-divider heading"><center>Get Started Today</center></div>
+
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': protectionForm.amountPercentage.$invalid && protectionForm.amountPercentage.$dirty }">
+                    <span class="input-label line-text">Annual Income your family would need if you are disable to earn. Typically between 60% - 70% of total family income:</span>
+                    <input type="text" name="amountPercentage" ng-model="data.AmountPercentageFamilyIncome" placeholder="4,00,000" value="4,00,000" maxlength="18" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="protectionForm.$submitted || protectionForm.amountPercentage.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="protectionForm.amountPercentage.$error.required">Must enter annual income</p>
+                    </div> 
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': protectionForm.yearIncome.$invalid && protectionForm.yearIncome.$dirty }">
+                    <span class="input-label line-text">Years income will need to be replaced or how long you want family to live in comfort ? (for example: 20 years)</span>
+                    <input type="text" name="yearIncome" ng-model="data.ComfortYears" placeholder="15" value="15" maxlength="3" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="protectionForm.$submitted || protectionForm.yearIncome.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="protectionForm.yearIncome.$error.required">Must enter income years</p>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{'has-error': protectionForm.expectedAnnual.$invalid && protectionForm.expectedAnnual.$dirty }">
+                    <span class="input-label line-text">Expected average annual return of investment:</span>
+                    <input type="text" name="expectedAnnual" ng-model="data.AnnualAverageRoi"  placeholder="4.00" value="4.00" maxlength="5" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="protectionForm.$submitted || protectionForm.expectedAnnual.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="protectionForm.expectedAnnual.$error.required">Must enter expected average annual return</p>
+                    </div>
+                </label> 
+            </div>
+            <padding><br>
+                <div align="center">
+                    <button class="button button-positive" ng-click="myGoBack()">
+                        {{'Back' | translate}}
+                    </button>
+                    <button class="button button-positive" ng-click="protectionForm.$valid && proCalculate()">
+                        {{'Calculate' | translate}}
+                    </button>
+                </div>
+            </padding>
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,75 @@
+<ion-view title="{{'Sales Quote' | translate}}">
+    <div class="bar bar-header bar-stable">
+        <h1 class="title">bar-stable</h1>
+    </div>
+    <ion-content class="has-header padding">
+        <form name="basicPlanForm" novalidate>
+            <div class="list">
+                <div class="item item-text-wrap cardBackground heading" ><center>
+                Sales Quote Insured Fund</center>
+                </div><br>
+                <div class="item item-text-wrap cardBackground" >
+                    Life Insurance: Protect Those That Matter To You Most
+                  </div><br>
+                  <div class="item item-divider heading"><center>{{'Sales Quote' | translate}}</center></div>
+                <!-- <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Quotation Number</span>
+                    <input type="text" placeholder="QT00000" ng-model="fundPlanCoverageDetail[0].QuoteNO" readonly />
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Product</span>
+                    <input type="text" placeholder="product" ng-model="fundPlanCoverageDetail[0].PlanName" readonly />
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Quotation Date</span>
+                    <input type="text" placeholder="quotatonDate" ng-model="fundPlanCoverageDetail[0].QuoteDate" readonly />
+                </label> -->
+                <a class="item" href="#">
+                    Quotation Number:
+                    <span class="item-note">
+                        {{fundPlanCoverageDetail[0].QuoteNo}}
+                    </span>
+                </a>
+                <a class="item" href="#">
+                    Product:
+                    <span class="item-note">
+                        {{fundPlanCoverageDetail[0].ProductName}}
+                    </span>
+                </a>
+                <a class="item" href="#">
+                    Quotation Date:
+                    <span class="item-note">
+                        {{fundPlanCoverageDetail.ProposalStateDate | date:'dd/MM/yyyy'}}
+                    </span>
+                </a>
+                <label class = "item item-input item-select">
+                    <div class="input-label">Fund Type:</div>
+                    <select name="fund" ng-model="data.fundType">
+                        <option value="" disabled>Select</option>
+                        <option ng-repeat="fund in fundList"  value="{{fund}}">{{fund.Name}}</option>
+                    </select>
+                </label>
+               <!--  <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Allocation %:</span>
+                    <input type="text" placeholder="Currency" ng-model="data.Allocation">
+                </label> -->
+                <a class="item" href="#">
+                    Allocation %:
+                    <span class="item-note">
+                        {{data.Allocation}}
+                    </span>
+                </a>
+            </div>
+            <padding><br>
+                <div align="center">
+                    <button class="button button-positive" ng-click="myGoBack()">
+                        {{'Back' | translate}}
+                    </button>
+                    <button ng-disabled="basicPlanForm.$invalid" class="button button-positive" ng-click="save()">
+                        {{'Save & Next' | translate}}
+                    </button>
+                </div>
+            </padding>    
+        </form>
+    </ion-content>
+</ion-view>

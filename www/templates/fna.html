@@ -1,0 +1,200 @@
+<ion-view title="{{'FNA'| translate}}">
+    <ion-content ng-repeat="Contact in ContactList">
+        <ion-header-bar  class="bar-positive">
+            <div class="buttons">
+                <button class="button btntop" ui-sref="app.contactupdate({leadno: Contact.Leadno, Id: Contact.Id })" >
+                    {{'Edit Contact'| translate}} 
+                </button>
+                <button class="button btntop" ui-sref="app.fna" >
+                    {{'FNA'| translate}} 
+                </button>
+                <button class="button btntop" ui-sref="app.newSalesQuote({leadno: Contact.Leadno})" >
+                    {{'NSQ'| translate}}  
+                </button>
+            </div>
+                <h1 class="title"></h1>
+            <div class="buttons">
+                <button class="button btntop" ui-sref="app.preview({leadno: Contact.Leadno})" >
+                    {{'Preview'| translate}} 
+                </button>
+            </div>
+        </ion-header-bar><br><br><br>
+
+        <div class="list profile-wrap">
+
+            <div class="myCol8">
+                <div>
+                    <div class="my-label">
+                        Name:
+                    </div>
+                    <label class="paragraph"> 
+                        {{Contact.ContactName}}
+                    </label>
+                </div>
+
+                <div>
+                    <div class="my-label">
+                        Other Name:
+                    </div> 
+                    <label class="paragraph">
+                        {{Contact.OtherName}}
+                    </label>
+                </div>
+
+                <div>
+                    <div class="my-label">
+                        Company:
+                    </div> 
+                    <label class="paragraph">
+                        {{Contact.CompanyName}}
+                    </label>
+                </div>
+
+                <div>
+                    <div class="my-label">
+                        Gender:
+                    </div> 
+                    <label class="paragraph">
+                        {{Contact.Gender}}
+                    </label>
+                </div>
+
+                <div>
+                    <div class="my-label">
+                        Job Title:
+                    </div> 
+                    <label class="paragraph">
+                        {{Contact.JobTitle}}
+                    </label>
+                </div>
+
+                <div>
+                    <div class="my-label">
+                        DOB:
+                    </div> 
+                    <label class="paragraph">
+                        {{Contact.BirthdDate | date:'dd/MM/yyyy'}}
+                    </label>
+                </div>
+
+                <div>
+                    <div class="my-label">
+                        Mob.no.:
+                    </div> 
+                    <label class="paragraph">
+                        {{Contact.Mobileno}}
+                    </label>
+                </div>
+
+                <div>
+                    <div class="my-label">
+                        Tel.no.:
+                    </div> 
+                    <label class="paragraph">
+                        {{Contact.OfficeTelephone}}
+                    </label>
+                </div>
+
+                <div class="cl"></div>
+            </div>
+
+            <div class="myCol4">
+                <img src="{{Contact.Leadimage}}" style="width: 100%; height: 100%;">
+            </div>
+            <div class="cl"></div>
+
+        </div>
+          
+            <!-- This is concept sale ui -->
+  
+        <div class="list" >
+        <div class="item item-divider heading">
+            <center>
+                {{'Concept Sale' | translate}}
+            </center>
+        </div>
+        <div class="list">
+
+            <div class="row">
+                <div class="col col-80">
+                    <label class="item item-input item-select">
+                        <span class="input-label">{{'1 Priority :' | translate}} </span>
+                        <select ng-model="fnaPrior[0].ConCode">
+                            <option ng-selected="selected" value="EDU">{{"Education" | translate }}</option>
+                            <option value="INV">{{"Investment" | translate }}</option>
+                            <option value="PRO">{{"Protection" | translate }}</option>
+                            <option value="RET">{{"Retirement" | translate }}</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col btn-block">
+                    <button  class="button  button-positive button-block" ng-click="changeState(fnaPrior[0].ConCode, fnaPrior[0].PriorVal)">
+                        {{'Link' | translate}}
+                    </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-80">
+                    <label class="item item-input item-select">
+                        <span class="input-label">{{'2 Priority :' | translate}}</span>
+                        <select ng-model="fnaPrior[1].ConCode">
+                            <option value="EDU">{{"Education" | translate }}</option>
+                            <option selected="selected" value="INV">{{"Investment" | translate }}</option>
+                            <option value="PRO">{{"Protection" | translate }}</option>
+                            <option value="RET">{{"Retirement" | translate }}</option>
+                        </select>
+                    </label>
+                </div>
+            <div class="col btn-block">
+                <button  class="button  button-positive button-block" ng-click="changeState(fnaPrior[1].ConCode, fnaPrior[1].PriorVal)">
+                    {{'Link' | translate}}
+                </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-80">
+                    <label class="item item-input item-select">
+                        <span class="input-label">{{'3 Priority :' | translate}}</span>
+                        <select ng-model="fnaPrior[2].ConCode">
+                            <option value="EDU">{{"Education" | translate }}</option>
+                            <option value="INV">{{"Investment" | translate }}</option>
+                            <option selected="selected" value="PRO">{{"Protection" | translate }}</option>
+                            <option value="RET">{{"Retirement" | translate }}</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col btn-block">
+                    <button  class="button  button-positive button-block" ng-click="changeState(fnaPrior[2].ConCode, fnaPrior[2].PriorVal)">
+                        {{'Link' | translate}}
+                    </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-80">
+                    <label class="item item-input item-select">
+                        <span class="input-label">{{'4 Priority :' | translate}}</span>
+                        <select ng-model="fnaPrior[3].ConCode">
+                            <option value="EDU">{{"Education" | translate }}</option>
+                            <option value="INV">{{"Investment" | translate }}</option>
+                            <option value="PRO">{{"Protection" | translate }}</option>
+                            <option selected="selected" value="RET">{{"Retirement" | translate }}</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col btn-block">
+                    <button  class="button  button-positive button-block" ng-click="changeState(fnaPrior[3].ConCode, fnaPrior[3].PriorVal)">
+                        {{'Link' | translate}}
+                    </button>
+                </div>
+            </div>
+            <padding>
+                <button ui-sref="app.contactupdate({leadno: Contact.Leadno})" class="button button-block button-positive" style="float:center;">
+                    {{'Back' | translate}}
+                </button>
+            </padding>
+        </div>
+    </ion-content>
+</ion-view>

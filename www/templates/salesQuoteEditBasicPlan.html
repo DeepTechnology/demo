@@ -1,0 +1,156 @@
+<ion-view title="{{'Sales Quote' | translate}}">
+	<ion-content class="has-header padding">
+		<form name="basicPlanForm" novalidate>
+			<div class="list">
+				<div class="item item-text-wrap cardBackground heading" ><center>
+                    Sales Quote Basic Plan</center>
+                </div><br>
+				<div class="item item-text-wrap cardBackground" >
+                    Life Insurance: Protect Those That Matter To You Most
+                </div><br>
+				<div class="item item-divider heading"><center>{{'Sales Quote' | translate}}</center></div>
+				<!-- <label class="item item-input item-stacked-label">
+					<span class="input-label line-text">Quotation Number</span>
+					<input type="text" placeholder="QT00000" ng-model="basicplanDetail[0].QuoteNo" readonly />
+				</label>
+				<label class="item item-input item-stacked-label">
+					<span class="input-label line-text">Product</span>
+					<input type="text" placeholder="product" ng-model="basicplanDetail[0].ProductName" readonly />
+				</label>
+				<label class="item item-input item-stacked-label">
+					<span class="input-label line-text">Quotation Date</span>
+					<input type="text" placeholder="quotatonDate" ng-model="basicplanDetail[0].ProposalStateDate" readonly />
+				</label>
+				<label class="item item-input item-stacked-label">
+					<span class="input-label line-text">Currency</span>
+					<input type="text" placeholder="Currency" ng-model="newplanBasic[0].BasicPlanCurrency" readonly />
+				</label> -->
+				<a class="item" href="#">
+                	Quotation Number:
+	                <span class="item-note">
+	                    {{basicplanDetail[0].QuoteNo}}
+	                </span>
+            	</a>
+            	<a class="item" href="#">
+	                Product:
+	                <span class="item-note">
+	                    {{basicplanDetail[0].ProductName}}
+            		</span>
+            	</a>
+            	<a class="item" href="#">
+	                Quotation Date:
+	                <span class="item-note">
+	                    {{basicplanDetail[0].ProposalStateDate}}
+	                </span>
+            	</a>
+            	<a class="item" href="#">
+	                Currency:
+	                <span class="item-note">
+	                    {{newplanBasic[0].BasicPlanCurrency}}
+	                </span>
+            	</a>
+			</div>
+
+		<!-- Insured column-->
+		<div class="list">
+			<div class="item item-divider heading"><center>{{'Basic Plan' | translate}}</center></div>
+			<label ng-show="basicRegularPremuim" class = "item item-input item-stacked-label" ng-class="{ 'has-error': basicPlanForm.yearlyregularPremium.$invalid && basicPlanForm.yearlyregularPremium.$dirty }">
+				<span class="input-label line-text">Yearly Regular Premium:</span>
+				<input type="text" name="yearlyregularPremium"  ng-model="yearlyRegularPremium" ng-change="yrpCalc(yearlyRegularPremium)" required>
+				<div class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.$submitted || basicPlanForm.yearlyregularPremium.$touched">
+            		<p class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.yearlyregularPremium.$error.required">Must enter yearly regular premium</p>
+          		</div>
+			</label>
+			<label ng-show="basicPlamSum"class="item item-input item-stacked-label" ng-class="{ 'has-error': basicPlanForm.sumAssured.$invalid && basicPlanForm.sumAssured.$dirty }">
+				<span class="input-label line-text">Sum Assured:</span>
+				<input type="text" name="sumAssured" placeholder="assured" ng-model="sumAssured">
+				<div class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.$submitted || basicPlanForm.sumAssured.$touched">
+            		<p class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.sumAssured.$error.required">Must enter sum assured</p>
+          		</div>
+			</label>
+			<label ng-show="basicInsuranceField" class="item item-input item-stacked-label">
+				<span class="input-label line-text">Insurance Portion:</span>
+				<input type="text" placeholder="" ng-model="insurancePortion" readonly />
+			</label>
+			<label ng-show="basicRegularTopup" class="item item-input item-stacked-label">
+				<span class="input-label line-text">Regular Topup:</span>
+				<input type="text" placeholder="" ng-model="regularTopup"  >
+			</label>
+			<label ng-show="baiscSingleTopup" class="item item-input item-stacked-label">
+				<span class="input-label line-text">Single Topup:</span>
+				<input type="text" placeholder="" ng-model="singleTopup"  >
+			</label>
+
+			<label class="item item-input item-select" ng-class="{ 'has-error': basicPlanForm.premiumterm.$invalid && basicPlanForm.premiumterm.$dirty }">
+				<div class="input-label">
+				Premium Term:
+				</div>
+				<select > 
+					<option value="Select"  disabled>Select</option>
+					<option ng-model="basicPlanPayMethod.basicPlanPremiumTerm" ng-change="premiumTermCalc(basicPlanPayMethod.basicPlanPremiumTerm)" ng-repeat="(key, value) in premiumTerm" value="{{value.term}}">{{value.term}}</option>
+				</select>
+			</label>
+			<div class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.$submitted || basicPlanForm.preterm.$touched">
+				<p class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.preterm.$error.required">Please select premium term</p>
+			</div> 
+          
+          	<label class = "item item-input item-select" ng-class="{ 'has-error': basicPlanForm.coverageterm.$invalid && basicPlanForm.coverageterm.$dirty }">
+				<div class="input-label">
+					Coverage Term:
+				</div>
+				<select name="coverageterm"  required>
+					<option value="" disabled>Select</option> 
+					<option ng-model="basicPlanPayMethod.CoverageTerm" ng-repeat="(key, value) in coverageTerm"  value="{{value.term}}">{{value.term}}</option>
+				</select>
+			</label>
+			<div class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.$submitted || basicPlanForm.coverageterm.$touched">
+				<p class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.coverageterm.$error.required">Please select coverage term</p>
+			</div>
+			<label class = "item item-input item-select" ng-class="{ 'has-error': basicPlanForm.benefitTerm.$invalid && basicPlanForm.benefitTerm.$dirty }">
+				<div class = "input-label">
+					Benefit Term:
+				</div>
+				<select name="benefitTerm"  required>
+					<option value="" disabled>Select</option>
+					<option ng-model="basicPlanPayMethod.benefitterm" ng-repeat="(key, value) in beneficialTerm"  value="{{value.term}}">{{ value.term }}</option>
+				</select>
+			</label>
+			<div class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.$submitted || basicPlanForm.benefitTerm.$touched">
+            <p class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.benefitTerm.$error.required">Please select benefit term</p>
+          </div>
+			<label class = "item item-input item-select">
+				<div class = "input-label">
+					Premium Method:
+				</div>
+				<select name="premiumMethod"  ng-model="basicPlanPayMethod.premiummethod" required>
+					<option selected disabled>Select</option>
+					<option  ng-repeat="(key, value) in premiumMethod"  value="{{key}}">{{value}}</option>
+				</select>
+			</label>
+			<label class = "item item-input item-select" ng-class="{ 'has-error': basicPlanForm.premiummode.$invalid && basicPlanForm.premiummode.$dirty }">
+				<div class = "input-label">
+					Premium Mode:
+				</div>
+				<select name="premiummode" ng-model="basicPlanPayMethod.PremiumMode" required>
+					<option selected disabled>Select</option>
+					<option  ng-repeat="(key, value) in premiumMode" value="{{key}}">{{value}}</option>
+					
+				</select>
+			</label>
+			<div class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.$submitted || basicPlanForm.premiummode.$touched">
+            <p class="help-block error-block basic-block validation-errors" ng-show="basicPlanForm.premiummode.$error.required">Please select premium mode</p>
+          </div>
+		</div>
+		<padding><br>
+			<div align="center">
+				<button class="button button-positive" ng-click="back()">
+				{{'Back' | translate}}
+				</button>
+				<button  class="button button-positive" ng-click="basicPlanForm.$valid && saveBasicPlan()">
+				{{'Save & Next' | translate}}
+				</button>
+			</div>
+		</padding>
+		</form>
+	</ion-content>
+</ion-view>

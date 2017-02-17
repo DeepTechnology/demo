@@ -1,0 +1,38 @@
+<ion-view title="{{'Calendar'| translate}}">
+    <ion-nav-buttons side="right">
+        <button class="button btntop" ui-sref="app.calendarui">
+            {{'Calendar'| translate}}
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header padding">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Event Details:</span>
+                    <input type="text" ng-model="calender.EventTitle" placeholder="Event Title" >
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Start Date:</span>
+                    <input type="date" ng-model="calender.StartDate" placeholder="DD/MM/YEAR">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Start Time(HH:MM):</span>
+                    <input type="time" ng-model="calender.StartDate" placeholder="HH:MM">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">End Date:</span>
+                    <input type="date" ng-model="calender.EndDate" placeholder="DD/MM/YEAR">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">End Time(HH:MM):</span>
+                    <input type="time" ng-model="calender.EndDate" placeholder="HH:MM">
+                </label>
+                <padding>
+                    <button ng-click="Add()" class="button button-positive button-block">
+                        Add
+                    </button>
+                </padding>
+            </div>
+    </ion-content>
+</ion-view>
+

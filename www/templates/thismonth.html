@@ -1,0 +1,31 @@
+<ion-view hide-nav-bar="true" style="background-color: lightgrey;">
+    <ion-header-bar align-title="center" class="bar bar-positive br-header">
+        <div class="buttons">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+            <div style="margin-left: 20px;" class="item-input-inset" ng-if="hasFilter">
+                <label class="item-input-wrapper textbox-search">
+                    <i class="icon ion-ios7-search placeholder-icon"></i>
+                    <input type="search" placeholder="Search" ng-model="searchText" ng-keyup="filterProduct(searchText);">
+                </label>
+            </div>
+        </div>
+        <h1 class="title" ng-show="!hasFilter">{{"This Month" | translate}}</h1>
+        <div class="buttons">
+            <a data-tap-disabled="true" class=" button button-icon icon positive" ng-click="openFilters(hasFilter);" ng-class="{'ion-ios-search-strong':!hasFilter,'ion-close-circled':hasFilter}" style="z-index:9999;"></a>
+        </div>
+    </ion-header-bar>
+    <ion-content scroll="true">
+        <div class="swordfish" ng-repeat="AppointmentsList in GetAppointmentsList | filter: searchProduct">
+            <div class="list" style="top: 90px;">
+                <a class="item item-avatar">
+                    <img src="img/bell.png">
+                    <p style="color:#4c87b9;">{{AppointmentsList.EventTitle}}</p>
+                    <p>StartDate:{{AppointmentsList.StartDate | date: 'dd/mm/yyyy'}}</p>
+                    <p>EndDate:{{AppointmentsList.EndDate | date: 'dd/mm/yyyy'}}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+

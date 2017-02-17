@@ -1,0 +1,119 @@
+<ion-view title="{{'Sales Quote' | translate}}">
+    <ion-content class="has-header padding">
+		<div class="item item-text-wrap cardBackground heading" ><center>
+           Sales Quote Summary</center>
+        </div><br>
+        <form name="basicPlanForm" novalidate>
+            <div class="list">
+                <div class="item item-divider heading"><center>{{'Sales Quote' | translate}}</center></div>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Quotation Number</span>
+                    <input type="text" placeholder="QT00000" ng-model="quotesDetail[0].QuoteNO" readonly />
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Product</span>
+                    <input type="text" placeholder="product" ng-model="quotesDetail[0].PlanName" readonly />
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Quotation Date</span>
+                    <input type="text" placeholder="quotatonDate" ng-model="quotesDetail[0].QuoteDate" readonly />
+                </label>
+            </div> 
+            <div class="item item-divider heading"><center>{{'Personal Detail' | translate}}</center></div>
+            <div class="list">
+				<a class="item" href="#">
+					Insured Name  
+					<span class="badge badge-assertive">
+						{{policyHolderDetail[0].Name}}
+					</span>
+				</a>
+				<a class="item " href="#">
+		  			Policy Holder Name	
+		  			<span class="item-note">
+		  			{{policyHolderDetail[1].Name}}</span>
+				</a> 
+               	<a class="item" href="#">
+					Insured DOB	  
+					<span class="item-note">
+						{{policyHolderDetail[0].BirthDate}}
+					</span>
+				</a> 
+				<a class="item" href="#">
+					Policy Holder DOB	
+					<span class="item-note">
+						{{policyHolderDetail[1].BirthDate}}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Insured Gender	
+					<span class="badge badge-positive">
+						{{policyHolderDetail[0].Gender}}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Policy Holder Gender
+					<span class="badge badge-positive">
+						{{policyHolderDetail[1].Gender}}
+					</span>
+				</a>
+			</div> 
+			<div class="item item-divider heading"><center>{{'Coverage Details' | translate}}</center></div>
+			<div class="list">
+				<a class="item" href="#">
+					No.
+					<span class="badge badge-assertive">
+						{{$index + 1 }}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Plan Code: 
+					<span class="item-note badge-assertive">
+						{{quotesDetail[0].PlanName}}
+					</span>
+				</a>
+               	<a class="item" href="#">
+					Sum Assured: 
+					<span class="item-note">
+						{{quotesDetail[0].SumAssured}}
+					</span>
+				</a> 
+				<a class="item" href="#">
+					Cover Term:
+					<span class="item-note">
+						{{quotesDetail[0].CoverageTerm}}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Prem. Term:
+					<span class="item-note">
+						{{quotesDetail[0].PremiumTerm}}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Yearly Reg Prem. 
+					<span class="item-note">
+						{{quotesDetail[0].AnnualPremium}}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Installment Prem.
+					<span class="item-note">
+						{{quotesDetail[0].InstallPrem}}
+					</span>
+				</a>
+			</div> 
+            <padding><br>
+                <div align="center">
+                    <button class="button button-positive" ng-click="myGoBack()">
+                        {{'Edit' | translate}}
+                    </button>
+                    <button  ng-disabled="basicPlanForm.$invalid" class="button button-positive" ng-click="apply()">
+                        {{'Apply' | translate}}
+                    </button>
+                </div>
+            </padding>
+        </form>
+    </ion-content>        
+</ion-view>
+
+

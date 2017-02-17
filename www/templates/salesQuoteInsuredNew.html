@@ -1,0 +1,64 @@
+<ion-view view-title="{{'Sale Quote' | translate}}">
+    <ion-content ng-init="saleQuoteFor = 'Select'">
+        <div class="item item-text-wrap heading"><center>Sales Quote Insured New</center></div><br>
+        <form>
+            <div class="list">
+                <label class="item item-input item-select">
+                    <span class="input-label">{{'Sales Quote For:' | translate}}</span>
+                    <select ng-model="saleQuoteFor" ng-change="changeQuotePrior(saleQuoteFor)">
+                        <option   selected disabled value="Select">Select</option>
+                        <option ng-repeat="data in relation" value="{{data}}">{{data.Name}}</option>
+                    </select>
+                </label>
+            </div>
+            <div class="list list-inset">
+                <a class="item" href="#">
+                    Lead ID:
+                    <span class="item-note">
+                        {{users[0].Leadno}}
+                    </span>
+                </a>
+                <a class="item" href="#">
+                        Name: 
+                    <span class="item-note">
+                        {{users[0].ContactName}}
+                    </span>
+                </a>
+                <a class="item" href="#">
+                        Gender: 
+                    <span class="item-note">
+                       {{users[0].Gender}} 
+                    </span>
+                </a>
+                <a class="item" href="#">
+                       Date Of Birth:
+                    <span class="item-note">
+                       {{users[0].BirthdDate | date:'dd/MM/yyyy'}}
+                    </span>
+                </a>
+               <!--  <div class="item">
+                    Lead ID: {{users[0].Leadno}}
+                </div>
+                <div class="item">
+                    Name: {{users[0].ContactName}}
+                </div>
+                <div class="item">
+                    Gender: {{users[0].Gender}} 
+                </div>
+                <div class="item">
+                    Date Of Birth: {{users[0].BirthdDate | date:'yyyy-MM-dd'}}
+                </div> -->
+            </div>
+            <padding><br>
+                <div align="center">
+                    <button ng-click="myGoBack()" class="button button-positive ">
+                        {{'Back' | translate}}
+                    </button>
+                    <button ng-disabled="checked" ng-click="continue(saleQuoteFor)" class="button button-positive ">
+                        {{'Continue' | translate}}
+                    </button>
+                </div>
+            </padding>
+        </form>
+    </ion-content>
+</ion-view>

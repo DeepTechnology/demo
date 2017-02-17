@@ -1,0 +1,46 @@
+<ion-view title="{{'Retirement Graph' | translate}}">
+    <ion-content>
+        <ion-header-bar  class="bar-positive">
+            <div class="buttons">
+                <button class="button btntop" ui-sref="app.RET({leadno: leadNo, PriorVal: PriorVal})">
+                    {{'Back'| translate}}
+                </button>
+                <button class="button btntop" ui-sref="app.RET({leadno: leadNo})" >
+                    {{'Retirement'| translate}}  
+                </button>
+                <button class="button btntop" ui-sref="app.retGraph({leadno: leadNo, PriorVal: PriorVal})" >
+                    {{'Result'| translate}}  
+                </button>
+
+            </div>
+            <h1 class="title"></h1>
+            <div class="buttons">
+                <button class="button btntop " ng-click="saveRet()">
+                    {{'Save'| translate}}   
+                </button>
+            </div>
+        </ion-header-bar><br><br><br>
+
+        <div class="item item-divider" style="background-color: #44b6ae; color: white;"><center>Get Started Today</center></div>
+        <div class="item item-divider"><center>Your insurance needs</center></div>
+        <div class="item item-text-wrap cardBackground">
+        Based on the information you’ve provided, we’ve calculated the amount of insurance you may need and how much it may cost.
+        </div><br>
+
+        <div class="item item-divider" style="background-color: #44b6ae; color: white;"><center>These results are based on:</center></div>
+        <div class="myTable">
+        <div class="first-row">Insurance</div>
+        <div class="second-row"><input name="" type="text" value="Retirement Insurance" readonly="readonly"  class="form-control Amount" placeholder="0"></div>
+        </div>
+
+        <div class="myTable">
+        <div class="item item-divider heading" ><center>Sum Assured</center></div>
+        <div class="second-row"><input name="" ng-model="sumAssured" type="text" value="IDR 15,072" readonly="readonly"  class="form-control Amount" placeholder="0"></div>
+        </div> 
+
+        <canvas id="bar" class="chart chart-bar"
+        chart-data="data" chart-labels="labels"> chart-series="series"
+        </canvas> 
+
+    </ion-content>  
+</ion-view>

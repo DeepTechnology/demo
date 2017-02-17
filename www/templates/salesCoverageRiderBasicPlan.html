@@ -1,0 +1,94 @@
+<ion-view title="{{'Sales Quote' | translate}}">
+    <ion-content class="has-header padding">
+        <form name="basicPlanForm" novalidate>
+            <div class="list">
+                <div class="item item-text-wrap cardBackground heading" ><center>
+                Sales Quote Coverage Basic Plan</center>
+                </div><br>
+                <div class="item item-divider heading"><center>{{'Sales Quote' | translate}}</center></div>
+                <!-- <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Quotation Number</span>
+                    <input type="text" placeholder="QT00000" ng-model="quotesDetail[0].QuoteNO" readonly />
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Product</span>
+                    <input type="text" placeholder="product" ng-model="quotesDetail[0].PlanName" readonly />
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Quotation Date</span>
+                    <input type="text" placeholder="quotatonDate" ng-model="quotesDetail[0].QuoteDate" readonly />
+                </label> -->
+                <a class="item" href="#">
+                    Quotation Number:
+                    <span class="item-note">
+                        {{quotesDetail[0].QuoteNO}}
+                    </span>
+                </a>
+                <a class="item" href="#">
+                    Product:
+                    <span class="item-note">
+                        {{quotesDetail[0].PlanName}}
+                    </span>
+                </a>
+                <a class="item" href="#">
+                    Quotation Date:
+                    <span class="item-note">
+                        {{quotesDetail[0].QuoteDate}}
+                    </span>
+                </a>
+            </div> 
+            <div class="item item-divider heading"><center>{{'Basic Plan' | translate}}</center></div>
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Life No:</span>
+                    <input type="text" placeholder="" ng-model="lifeNumber">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Plan Code :</span>
+                    <input type="text" placeholder="" ng-model="planName">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label line-text">Sum Assured :</span>
+                    <input type="text" placeholder="" ng-model="quotesDetail[0].SumAssured" >
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                    Prem. Term :                
+                    </div>
+                    <select ng-model="rider.premiumTerm"> 
+                        <option selected disabled>Select</option>
+                        <option ng-repeat="(key, value) in riderBasicPlan.premPayTerm" value="{{value.term}}">{{value.term}}</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                    Cover. Term :               
+                    </div>
+                    <select ng-model="rider.coverageTerm" >
+                        <option selected disabled>Select</option>
+                        <option  ng-repeat="(key, value) in riderBasicPlan.covTerm" value="{{value.term}}">{{value.term}}</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                    Benefit. Term :             
+                    </div>
+                    <select ng-model="rider.benefitTerm"> 
+                        <option selected disabled>Select</option>
+                        <option ng-repeat="(key, value) in riderBasicPlan.benTerm" value="{{value.term}}">{{value.term}}</option>
+                    </select>
+                </label>
+            </div>
+            <padding><br>
+                <div align="center">
+                    <button class="button button-positive" ng-click="myGoBack()">
+                        {{'Back' | translate}}
+                    </button>
+                    <button  ng-disabled="basicPlanForm.$invalid" class="button button-positive" ng-click="save()">
+                        {{'Save' | translate}}
+                    </button>
+                </div>
+            </padding>
+        </form>
+    </ion-content>        
+</ion-view>

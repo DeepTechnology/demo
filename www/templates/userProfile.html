@@ -1,0 +1,34 @@
+<ion-view view-title="{{'User Profile' | translate}}">
+	<ion-content>
+		<div class="row menu-top">
+			<div class="col col-center">
+				<img class="profile-image profile-page" ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+    			<img class="profile-image profile-page" ng-show="imgURI === undefined" ng-src="img/profile_user.jpg">
+			</div>
+		</div><br>
+		<div class="profile-usertitle-name">
+			{{userprofile.Username}}
+		</div><br>
+		<div class="profile-userbuttons"> 
+			<button type="button" class="btn btn-circle blue btn-sm" ng-click="getPicture()">Open Gallery</button>
+			<button type="button" class="btn btn-circle blue btn-sm" ng-click="takePicture()">Camera</button>
+			<button type="button" class="btn btn-circle green btn-sm" ng-click="saveProfile()">Save</button>
+		</div>
+		<div class="list">
+			<a class="item item-icon-left" href="#">
+				<i class="icon ion-android-person" style="color: #3faba4;"></i>
+					User-ID
+				<span class="item-note" style="color: #5a7391;">
+					{{userprofile.UserId}}
+				</span>
+			</a>
+			<a class="item item-icon-left" href="#">
+				<i class="icon ion-email" style="color: #3faba4;"></i>
+					Email
+				<span class="item-note" style="color: #5a7391;">
+					{{userprofile.Email}}
+				</span>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

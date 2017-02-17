@@ -1,0 +1,40 @@
+<ion-view title="{{'UpdateDetailCal'| translate}}">
+    <ion-nav-buttons side="right">
+        <button class="button btntop" ui-sref="app.calendarui({event: event})">
+            {{'Calendar'| translate}}
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header padding">
+        <form >
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Event Details:</span>
+                    <input type="text" ng-model="eventList.EventTitle" placeholder="Event Title" >
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Start Date:</span>
+                    <input type="date" ng-model="eventList.StartDate" placeholder="DD/MM/YEAR">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Start Time(HH:MM):</span>
+                    <input type="time" ng-model="eventList.StartDate" placeholder="HH:MM">
+                </label>{{EndDate}}
+                <label class="item item-input">
+                    <span class="input-label">End Date:</span>
+                    <input type="date" ng-model="eventList.EndDate" placeholder="DD/MM/YEAR">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">End Time(HH:MM):</span>
+                    <input type="time" ng-model="eventList.EndDate" placeholder="HH:MM">
+                </label>
+                <padding>
+                    <button ng-click="Update()" class="button button-positive button-block">
+                        Update Event
+                    </button>
+                </padding>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
+

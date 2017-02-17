@@ -1,0 +1,88 @@
+<ion-view title="{{'Education' | translate}}">
+    <ion-nav-buttons side="right">
+        <button class="button btntop"  ng-click="saveFna()">
+            {{'Save'| translate}}   
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header padding">
+        <form name="educationForm" novalidate>
+            <div class="list">
+                <div class="item item-divider heading"><center>Get Started Today</center></div>
+                <label class = "item item-input item-select">
+                    <div class = "input-label">
+                        Select
+                    </div>
+                    <select ng-model="data.LevelNo">
+                        <option value="1" selected>Child 1</option>
+                        <option value="2">Child 2</option>                                
+                        <option value="3">Child 3</option>
+                        <option value="4">Child 4</option>
+                        <option value="5">Child 5</option>
+                    </select>
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': educationForm.childAge.$invalid && educationForm.childAge.$dirty }">
+                    <span class="input-label line-text">Child's current age:</span>
+                    <input type="text" name="childAge" ng-model="data.ChildAge" placeholder="13" value="13" maxlength="3" required="">
+                    <div class="help-block error-block basic-block validation-errors" ng-show="educationForm.$submitted || educationForm.childAge.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="educationForm.childAge.$error.required">Must enter current age</p>
+                    </div> 
+                    <p class="help-block error-block basic-block validation-errors" ng-show="data.ChildAge > data.EductionEntryAge">current age less than entering age</p>
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': educationForm.childEnterAge.$invalid && educationForm.childEnterAge.$dirty }" >
+                    <span class="input-label line-text">Child's age when entering the period of education:</span>
+                    <input type="text" name="childEnterAge" ng-model="data.EductionEntryAge" placeholder="15" value="15" maxlength="3" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="educationForm.$submitted || educationForm.childEnterAge.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="educationForm.childEnterAge.$error.required">Must enter education entering age</p>
+                    </div> 
+                    <p class="help-block error-block basic-block validation-errors" ng-show="data.EductionEntryAge < data.ChildAge">Entering age greater than current age</p>
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': educationForm.numberOfYears.$invalid && educationForm.numberOfYears.$dirty}">
+                    <span class="input-label line-text">Number of years in education:</span>
+                    <input type="text"  name="numberOfYears" ng-model="data.NoofYearInEducation" placeholder="10" value="10" maxlength="3" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="educationForm.$submitted || educationForm.numberOfYears.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="educationForm.numberOfYears.$error.required">Must enter education years</p>
+                    </div> 
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': educationForm.annualCost.$invalid && educationForm.annualCost.$dirty }">
+                    <span class="input-label line-text">Annual cost:</span>
+                    <input type="text" name="annualCost" ng-model="data.AnnualCost" placeholder="13,000" value="13,000" maxlength="18" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="educationForm.$submitted || educationForm.annualCost.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="educationForm.annualCost.$error.required">Must enter annual cost</p>
+                    </div> 
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': educationForm.inflationRate.$invalid && educationForm.inflationRate.$dirty }">
+                    <span class="input-label line-text">Inflation rate(%):</span>
+                    <input type="text" name="inflationRate" ng-model="data.InflationRate" placeholder="9.00" value="9.00" maxlength="5" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="educationForm.$submitted || educationForm.inflationRate.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="educationForm.inflationRate.$error.required">Must enter inflation rate</p>
+                    </div> 
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': educationForm.amountInvested.$invalid && educationForm.amountInvested.$dirty }">
+                    <span class="input-label line-text">Amount invested so far:</span>
+                    <input type="text" name="amountInvested" ng-model="data.AmountInvested" placeholder="13,000" value="13,000" maxlength="18" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="educationForm.$submitted || educationForm.amountInvested.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="educationForm.amountInvested.$error.required">Must enter invested amount</p>
+                    </div> 
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': educationForm.expectedAverage.$invalid && educationForm.expectedAverage.$dirty }" >
+                    <span class="input-label line-text">Expected average annual return of investment:</span>
+                    <input type="text" name="expectedAverage" ng-model="data.AnnualAverageRoi" placeholder="11,522" value="11,522" maxlength="5" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="educationForm.$submitted || educationForm.expectedAverage.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="educationForm.expectedAverage.$error.required">Must enter expected average annual return</p>
+                    </div> 
+                </label>
+                <padding><br>
+                    <div align="center">
+                        <button class="button button-positive" ng-click="myGoBack()">
+                            {{'Back' | translate}}
+                        </button>
+                        <button   class="button button-positive" ng-click="educationForm.$valid && calculateEdu()">
+                            {{'Calculate' | translate}}
+                        </button>
+                    </div>
+                </padding>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

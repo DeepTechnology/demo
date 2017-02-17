@@ -1,0 +1,192 @@
+<ion-view title="{{'Add Contact' | translate}}" cache-view="false">
+    <ion-content class="has-header padding">
+        <form name="contactAddForm" novalidate>
+            <div class="list">
+                <div class="required item item-divider heading"><center>{{'Contact Information' | translate}}</center></div>
+                <!--  <div class="required item item-divider line-text">{{'All fields marked with an asterisk (*) are required.' | translate}}</div> -->
+                <div class="item item-text-wrap cardBackground">{{'All fields marked with an asterisk (*) are required.' | translate}}</div>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': contactAddForm.contactName.$invalid && contactAddForm.contactName.$dirty }">
+                    <span class="input-label line-text" >{{'Name:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" name="contactName" ng-model="editData.ContactName" placeholder="Fill Your User Name" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.contactName.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.contactName.$error.required">Please input your username !</p>
+                    </div> 
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': contactAddForm.otherName.$invalid && contactAddForm.otherName.$dirty }">
+                    <span class="input-label">{{'Other Name:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" name="otherName" ng-model="editData.OtherName"  placeholder="Other Name" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.otherName.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.otherName.$error.required">Fill user name !</p>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': contactAddForm.companyName.$invalid && contactAddForm.companyName.$dirty }">
+                    <span class="input-label">{{'Company:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" name="companyName" ng-model="editData.CompanyName" placeholder="Company Name" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.companyName.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.companyName.$error.required">Fill company name !</p>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': contactAddForm.jobTitle.$invalid && contactAddForm.jobTitle.$dirty }">
+                    <span class="input-label">{{'Job Title:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" name="jobTitle" ng-model="editData.JobTitle" placeholder="Title" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.jobTitle.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.jobTitle.$error.required">Fill title name !</p>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': contactAddForm.birthdDate.$invalid && contactAddForm.birthdDate.$dirty }">
+                    <span class="input-label">{{'Date of Birth:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="date" name="birthdDate" ng-model="editData.BirthdDate" placeholder="For e.g 19/04/1980" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.birthdDate.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.birthdDate.$error.required">Fill date of birth !</p>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': contactAddForm.email.$invalid && contactAddForm.email.$dirty }">
+                    <span class="input-label">{{'Email Address:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="email" name="email" ng-model="editData.Email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" placeholder="for e.g kamseng@yahoo.com" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.email.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.email.$error.required">Please enter a valid email address !</p>
+                    </div>
+                </label>
+                <label class="item item-input item-select" ng-class="{ 'has-error': contactAddForm.gender.$invalid && contactAddForm.gender.$dirty }">
+                    <span class="input-label">{{'Gender:' | translate}}<span style="color: red;">*</span></span>
+                    <select name="gender" ng-model="editData.Gender" required>
+                        <option value="">{{'Select' | translate}}</option>
+                        <option value="M">{{'Male' | translate}}</option>
+                        <option value="F">{{'Female' | translate}}</option>
+                    </select>
+                </label>
+                <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.gender.$touched"   >
+                    <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.gender.$error.required">Please choose gender !</p>
+                </div>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Facebook:' | translate}}</span>
+                    <input type="text" name="facebookId" ng-model="editData.FacebookID" placeholder="for e.g www.facebook.com/Wong Kam Seng" >
+
+                </label>
+                <div class="item item-divider heading"><center>{{'Corresponding Address' | translate}}</center></div>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': contactAddForm.address1.$invalid && contactAddForm.address1.$dirty }">
+                    <span class="input-label">{{'Address 1:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" name="address1" ng-model="editData.Address1" placeholder="Type Your Address" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.address1.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.address1.$error.required">fill your address 1 !</p>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Address 2:' | translate}}</span>
+                    <input type="text" ng-model="editData.Address2" placeholder="Type Your Address">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Address 3:' | translate}}</span>
+                    <input type="text" ng-model="editData.Address3" placeholder="Type Your Address">
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': contactAddForm.city.$invalid && contactAddForm.city.$dirty }">
+                    <span class="input-label">{{'City:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" name="city" ng-model="editData.CityCode" placeholder="Type Your City" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.city.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.city.$error.required">fill your city !</p>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': contactAddForm.postCode.$invalid && contactAddForm.postCode.$dirty }">
+                    <span class="input-label">{{'Post Code:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" ng-model="editData.PostalCode" name="postCode" placeholder="for e.g 68100" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.postCode.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.postCode.$error.required">fill your post code !</p>
+                    </div>
+                </label>
+                <label class="item item-input item-select" ng-class="{ 'has-error': contactAddForm.stateCode.$invalid && contactAddForm.stateCode.$dirty }">
+                    <span class="input-label" >{{'Area:' | translate}}<span style="color: red;">*</span></span>
+                    <select name="stateCode" ng-model="editData.StateCode" required>
+                        <option selected >{{'Select' | translate}}</option>
+                        <option value="0017">Bali</option>
+                        <option value="0016">Banten</option>
+                        <option value="0007">Bengkulu</option>
+                        <option value="0014">DI Yogyakarta</option>
+                        <option value="0011">DKI Jakarta</option>
+                        <option value="0028">Gorontalo</option>
+                        <option value="0005">Jambi</option>
+                        <option value="0012">Jawa Barat</option>
+                        <option value="0013">Jawa Tengah</option>
+                        <option value="0015">Jawa Timur</option>
+                        <option value="0020">Kalimantan Barat</option>
+                        <option value="0022">Kalimantan Selatan</option>
+                        <option value="0021">Kalimantan Tengah</option>
+                        <option value="0023">Kalimantan Timur</option>
+                        <option value="0009">Kepulauan Bangka Belitung</option>
+                        <option value="0010">Kepulauan Riau</option>
+                        <option value="0008">Lampung</option>
+                        <option value="0030">Maluku</option>
+                        <option value="0031">Maluku Utara</option>
+                        <option value="0018">Nusa Tenggara Barat</option>
+                        <option value="0019">Nusa Tenggara Timur</option>
+                        <option value="0033">Papua</option>
+                        <option value="0032">Papua Barat</option>
+                        <option value="0004">Riau</option>
+                        <option value="0029">Sulawesi Barat</option>
+                        <option value="0026">Sulawesi Selatan</option>
+                        <option value="0025">Sulawesi Tengah</option>
+                        <option value="0027">Sulawesi Tenggara</option>
+                        <option value="0024">Sulawesi Utara</option>
+                        <option value="0003">Sumatera Barat</option>
+                        <option value="0006">Sumatera Selatan</option>
+                        <option value="0002">Sumatera Utara</option>
+                    </select>
+                </label>
+                <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.stateCode.$touched"   >
+                    <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.stateCode.$error.required">Please Choose Area !</p>
+                </div>
+                <label class="item item-input item-select" ng-class="{ 'has-error': contactAddForm.country.$invalid && contactAddForm.country.$dirty }">
+                    <span class="input-label" >{{'Country:' | translate}}<span style="color: red;">*</span></span>
+                    <select name="country" ng-model="editData.CountryCode" required>
+                        <option selected>{{'Select' | translate}}</option>
+                        <option value="US">Amerika Serikat</option>
+                        <option value="ID">Indonesia</option>
+                        <option value="SG">Singapura</option>
+                    </select><br>
+                </label>
+                <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.country.$touched" >
+                    <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.country.$error.required">Please Choose Country !</p>
+                </div>
+                <div class="item item-divider heading"><center>{{'Tel. / Mobile' | translate}}</center></div>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error': contactAddForm.mobilePhone.$invalid && contactAddForm.mobilePhone.$dirty }">
+                    <span class="input-label">{{'Mobile Phone:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="tel" name="mobilePhone" ng-model="editData.Mobileno"  placeholder="for e.g. 60126728888" required>
+                    <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.mobilePhone.$touched">
+                        <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.mobilePhone.$error.required">fill your mobile phone !</p>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Office Phone:' | translate}}</span>
+                    <input type="tel" ng-model="editData.OfficeTelephone" placeholder="for e.g. 0128881911">
+                </label>
+                <div class="item item-divider heading"><center>{{'Lead Details' | translate}}</center></div>
+               <!--  <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Lead No:' | translate}}</span>
+                    <input type=""  readonly="" placeholder="" required>
+                </label> -->
+                <label class="item item-input item-select" ng-class="{ 'has-error': contactAddForm.leadStatus.$invalid && contactAddForm.leadStatus.$dirty }">
+                    <span class="input-label">{{'Lead Status:' | translate}}<span style="color: red;">*</span></span>
+                    <select name="leadStatus" ng-model="editData.LeadStatus" required>
+                        <option selected>{{'Select' | translate}}</option>
+                        <option value="C">Contacted</option>
+                        <option value="N">New Lead</option>
+                        <option value="U">Not Qualified</option>
+                        <option value="Q">Qualified</option>
+                    </select>
+                </label>
+                <div class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.$submitted || contactAddForm.leadStatus.$touched">
+                    <p class="help-block error-block basic-block validation-errors" ng-show="contactAddForm.leadStatus.$error.required">Please Choose Lead Status!</p>
+                </div>
+                <padding><br>
+                    <div align="center">
+                        <button ng-click="Cancel()" class="button button-positive ">
+                            {{'Cancel' | translate}}
+                        </button>
+                        <button class="button button-positive" ng-click="contactAddForm.$valid && Add()">
+                            {{'Save' | translate}}
+                        </button>
+                    </div>
+                </padding>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

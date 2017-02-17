@@ -1,0 +1,25 @@
+<ion-view view-title=Today cache-view="false">
+    <ion-content scroll="false" class="main-content">
+        <ion-header-bar align-title="left" class="bar-positive">
+            <div class="buttons">
+                <button class="button btntop" ng-disabled="isToday()" ng-click="today()">Today</button>
+                <button class="button btntop" ng-click="changeMode('month')">M</button>
+                <button class="button btntop" ng-click="changeMode('week')">W</button>
+                <button class="button btntop" ng-click="changeMode('day')">D</button> 
+            </div>
+            <h1 class="title"></h1>
+            <div class="buttons">
+                <button class="button btntop" ui-sref="app.calendar">Add event</button>
+            </div>
+        </ion-header-bar><br><br>
+        <div class="item item-divider">
+            <center>{{viewTitle}}</center>
+        </div>
+        <calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-edit="editEvent(event)" 
+            event-delete="deleteEvent(event)" event-source="calendar.eventSource"
+            range-changed="reloadSource(startTime, endTime)"
+            event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title)"
+            time-selected="onTimeSelected(selectedTime, events, disabled)" step="30" >
+        </calendar>
+    </ion-content>
+</ion-view>

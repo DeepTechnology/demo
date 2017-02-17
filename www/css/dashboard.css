@@ -1,0 +1,459 @@
+.card {
+    background: #fff;
+    border-radius: 0px !important;
+    display: inline-block;
+    height: 142px;
+    margin: 0rem !important;
+    position: initial;
+    width: 603px;
+    padding: 42px 13px 99px 20px;
+    padding-top: 29px !important;
+}
+.text-center{
+    text-align: center;
+}
+
+.tabs-positive > .tabs, .tabs.tabs-positive{
+    margin: 0px 0px -49px 0px;
+}
+.icon{
+    font-size: 25px;
+    color: white;
+}
+.profile-icon {
+    font-size: 25px;
+    color: #080808;
+    position: absolute;
+    left: 233px;
+    top: 140px;
+    z-index: 1;
+}
+
+.heading {
+    background-color: #44b6ae !important; 
+    color: #ffffff !important;
+}
+
+.card-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-2 {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card-3 {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.card-4 {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-5 {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+/* app menu css */
+
+.bar.bar-positive {
+    border-color: #d05454 !important;
+    background-color: #d05454 !important;
+    background-image: linear-gradient(0deg,#d05454,#d05454 50%,transparent 50%) !important;
+    color: #fff;
+    border-color: #344047 ;
+}
+
+/*hamburger and custom button css*/
+/*.bar-positive .button {
+border-color: #344047 ;
+background-color: #344047;
+}*/
+
+/*avatar box css*/
+/*.item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
+padding-left: 72px;
+min-height: 72px;
+background-color: #01b070 !important;
+}*/
+
+/*view button css*/
+.button.button-positive {
+    border-color: #333 !important;
+    background-color: #333 !important;
+    color: #fff;
+}
+
+
+/*this calendar css*/
+.event-detail-container {
+    border-top: 2px #a9a9a9 solid;
+    margin-top: 276px !important;
+}
+
+/*all button css*/
+
+.btntop {
+    border-color: #3faba4 !important;
+    background-color: #3faba4 !important;
+    margin-right: 2px !important;
+} 
+
+/*graph child button css*/
+
+.graphbtn{
+    float: right !important;
+    background-color: #97bbcd !important;
+    border-radius: 10rem !important;
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0px 7px 0px 14px !important;
+}
+
+/*tabs css*/
+
+.button-bar{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 999;
+}
+
+.tabsbtn{
+    background-color: #3faba4 !important;
+    border-color: #ffffff !important;
+    color: white !important;
+    white-space: normal !important;
+    line-height: normal !important;
+    padding-top: 5px !important;
+    font-size: 15px !important;
+}
+/*a:hover {
+background-color: #139a7f !important;
+}*/
+
+/*profile icon color*/
+.btncolor{
+    background-color: #d05454 !important; 
+    color: white !important;
+}
+
+/*profile name css*/
+.profile-usertitle-name {
+    color: #5a7391 !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin-bottom: 7px !important; 
+}
+
+/*profile change image css */
+
+.blue.btn {
+    color: white;
+    background-color: #4c87b9;
+    border-radius: 50px;
+    border-color: #4c87b9;
+    margin: -2px 8px 24px 2px;
+}
+
+/*div profile css*/
+.profile-userbuttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.profile-userbuttons .button {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 15px;
+}
+
+/*save button profile css*/
+.green.btn {
+    color: white;
+    background-color: #3a9c96;
+    border-radius: 50px;
+    border-color: #3a9c96;
+}
+
+/*calender line space css*/
+
+.event-detail-container {
+    margin-top: 370px !important;
+}
+
+/*table css*/
+
+.header .abc {
+    background-color:lightgrey;
+}
+
+.abc {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.abc:last-child {
+    border-right: solid 1px grey;
+}
+
+.row:last-child .abc {
+    border-bottom: solid 1px grey;
+}
+
+.myTable{
+    width: 25%;
+    float: left;
+}
+.myTable>.first-row{
+    border: 1px solid #999;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-bottom: 0;
+}
+.myTable>.second-row{
+    border: 1px solid #999;
+    text-align: center;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+}
+.myTable>.second-row>input{
+    width: 100%;
+}
+
+
+@media(max-width: 640px){
+    .myTable{
+        width: 100%;
+        float: left;
+    }
+    .myTable>.second-row>input{
+        text-align: center;
+    }
+}
+
+/*fna page ui css*/
+
+.h1 .h2 .h3 .h4 .h5{
+    text-align: center !important;
+}
+.paragraph > label{
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+.myCol8{
+    width: 70%;
+    height: auto;
+    float: left;
+}
+.myCol4{
+    width: 30%;
+    height: auto;
+    float: left;
+    text-align: center;
+    padding-top: 10px;
+}
+.cl{
+    clear: both;
+}
+
+.myCol8 > div{
+    width: 50%;
+    float: left;
+}
+.my-label{
+    width: 110px;
+    float: left;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+@media(max-width: 600px){
+    .myCol8 > div{
+        width: 100%;
+        float: none;
+    }
+
+    .my-label{
+        width: 130px;
+        float: left;
+        font-weight: bold;
+        padding-left: 10px;
+    }
+}
+
+.link-place{
+    float: right !important
+}
+
+.btn-block .button-block {
+    margin: 0px !important;
+}
+
+.profile-page {
+    border-radius: 50% !important;
+    height: 50% !important; 
+    width: 50% !important;
+    top: 105px !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    z-index:999 !important;
+}
+
+.profile-usertitle-name{
+    float:center; 
+    text-align: center;
+}
+
+.validation-errors{
+    color:red ! important;
+}
+
+/*contactlist icon color*/
+
+
+.item-icon-right .icon {
+    right: 11px;
+    color: #dadada;
+    font-size: 17px !important;
+
+}
+
+.item-stacked-label {
+    white-space: normal !important;
+}
+
+.item{
+    color: #000 !important;
+}
+
+.tabs-style {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 999;
+    top: 44px;
+}
+
+.title-center{
+    left: 40px !important;
+}
+
+/*fna form text css*/
+.line-text{
+    width:100% !important; 
+}
+.badge-text{
+    width:100% !important; 
+}
+
+.input-label {
+    max-width: 100% !important;
+}
+/*accordian for coverge page css sale qoute*/
+
+.list .item.item-accordion {
+    line-height: 38px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+    line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+    display: block !important;
+}
+/*new sales qoutes tabs button css */
+.nsqbuttonTabs{
+    background-color: #1bbc9b !important;
+    color: white !important;  
+    border-color: white !important;
+}
+
+.badge.badge-assertive {
+    background-color: #d05454 !important;
+    color: #fff !important;
+}
+
+.userapps .content .card .item .subtext {
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+    color: #767f8d !important;
+}
+
+.userapps .content .card .item {
+    padding: 20px !important;
+    padding-bottom: 18px !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
+    font-weight: 300 !important;
+    /* box-shadow: 0 1px 2px #c1c9d6, inset 0 2px 0 #7a8493; */
+    border: none !important;
+    border-top: 4px solid #7a8493 !important;
+    border-radius: 2px !important;
+    background-color: white !important;
+}
+
+/*salesQuoteCoverage button color*/
+
+.salesQuoteCoverage { 
+    background-color: #44b6ae !important;
+    color: white !important;
+}
+/*salesQuoteCoverage page background color*/
+.itembox {
+    background-color: #ddd !important;
+}
+/*ionic loading icon size*/
+
+.spinner svg {
+    width: 25px !important;
+    height: 20px !important;
+    stroke: #FFF !important;
+    fill: #FFF !important;
+    animation: 'fade-in',
+    noBackdrop: false !important,
+}
+/*fna tabs css*/
+.tabs-top>.tabs, .tabs2.tabs-top {
+    top: 0px ! important;
+    padding-top: 0;
+    background-position: bottom;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+}
+
+/*tabs fna css*/
+.tabs-striped .tab-item {
+    margin-top: 1px;
+    font-size: 12px;
+}
+
+.tabs-striped .tab-item.tab-item-active, 
+.tabs-striped > .tabs
+{
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.custom .tab-nav.tabs {
+    margin-top: 44px ! important;
+}
+
+.pane[hide-nav-bar="true"] .has-tabs-top {
+    top: 0px !important; 
+}
+

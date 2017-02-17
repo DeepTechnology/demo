@@ -1,0 +1,208 @@
+<ion-view title="{{'Sales Quote' | translate}}">
+	<ion-nav-buttons side="right">
+		<button class="button btntop" ng-click="calCovrage()">
+			{{'Calculate'| translate}}
+		</button>
+	</ion-nav-buttons>
+	<ion-content class="has-header padding itembox">
+		<form name="basicPlanForm" novalidate>
+			<div class="list">
+				<div class="item item-text-wrap cardBackground heading" ><center>Sales Quote Coverage</center></div><br>
+				<div class="item item-text-wrap cardBackground" >Life Insurance: Protect Those That Matter To You Most</div><br>
+				<div class="item item-divider heading"><center>{{'Sales Quote' | translate}}</center></div>
+					<a class="item" href="#">
+						Quotation Number:
+						<span class="item-note">
+							{{quotesDetail[0].QuoteNo}}
+						</span>
+					</a>
+					<a class="item" href="#">
+						Product:
+						<span class="item-note">
+							{{quotesDetail[0].ProductName}}
+						</span>
+					</a>
+					<a class="item" href="#">
+						Quotation Date:
+						<span class="item-note">
+							{{quotesDetail.ProposalStateDate | date:'dd/MM/yyyy'}}
+						</span>
+					</a>
+			</div> 
+
+			<ion-list>
+				<div class="list">
+					<div class="item item-button-right salesQuoteCoverage">
+						Coverage
+						<button class="button button-positive" ng-click="addCoverage()" style="font-size:15px;">
+							{{'Add'| translate}} 
+						</button>
+					</div>
+				</div>
+			</ion-list>
+
+			<div class="list" ng-repeat="quotes in quotesDetail">
+				<a class="item" href="#">
+					No.   
+					<span class="badge badge-assertive">
+						{{$index + 1 }}
+					</span>
+				</a>
+				<a class="item " href="#">
+					Plan Name:
+					<span class="item-note">
+						{{quotes.PlanName}}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Sum Cover.   
+					<span class="item-note">
+						{{quotes.SumAssured}}
+					</span>
+				</a> 
+				<a class="item" href="#">
+					Cover Term. 
+					<span class="item-note">
+						{{quotes.CoverageTerm}}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Premium Term.   
+					<span class="item-note">
+						{{quotes.PremiumTerm}}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Yearly Reg Prem.  
+					<span class="item-note">
+						{{quotes.AnnualPremium}}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Installment Prem. 
+					<span class="item-note">
+						{{quotes.InstallPrem}}
+					</span>
+				</a> 
+
+				<div class="item item-button-right">
+					Actions
+					<button class="button button-balanced" ng-click="editCoverage()">
+						<i class="icon ion-compose" style="font-size:15px;">&nbsp;Edit</i> 
+					</button>
+				</div>
+			</div>
+
+
+
+			<!-- only for ilb=hb -->
+			<ion-list ng-show="coverageFundData">
+				<div class="item item-button-right salesQuoteCoverage">
+					Fund
+					<button class="button button-positive" ng-click="addFund()" style="font-size:15px;">
+						{{'Add'| translate}} 
+					</button>
+				</div>
+			</ion-list>
+
+			<div class="list" ng-repeat="fund in fundDetail">
+				<a class="item" href="#">
+					No.   
+					<span class="badge badge-assertive">
+						{{$index + 1 }}
+					</span>
+				</a>
+				<a class="item " href="#">
+					Fund Type:
+					<span class="item-note">
+						{{fund.Name}}
+					</span>
+				</a> 
+				<a class="item" href="#">
+					%   
+					<span class="item-note">
+						{{fund.FPERC}}
+					</span>
+				</a> 
+				<a class="item" href="#">
+					Low %
+					<span class="item-note">
+						{{fund.LowPrice}}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Medium %
+					<span class="item-note">
+						{{fund.MedPrice}}
+				</span>
+				</a>
+				<a class="item" href="#">
+					High %
+					<span class="item-note">
+						{{fund.HighPrice}}
+					</span>
+				</a> 
+				<div class="item item-button-right">
+					Actions
+					<button class="button button-balanced"  ng-click="editFund(fund.Id)" style="float: right;">
+						<i class="icon ion-compose" style="font-size:15px;">&nbsp;Edit</i> 
+					</button>
+				</div><br>
+				<button class="button button-positive" ng-click="deleteFund(fund)"> {{'Delete'| translate}} </button>
+			</div>
+
+			<ion-list ng-show="coverageTopUpData">
+				<div class="item item-button-right salesQuoteCoverage">
+					Top up
+					<button class="button button-positive"  ng-click="addTopup()" style="font-size:15px;">
+						{{'Add'| translate}}   
+					</button>
+				</div>
+			</ion-list>
+
+			<div class="list" ng-repeat="topup in topUpDetail">
+				<a class="item" href="#">
+					No.   
+					<span class="badge badge-assertive">
+						{{$index + 1 }}
+					</span>
+				</a>
+				<a class="item" href="#">
+					Year
+					<span class="item-note">
+						{{topup.YearVal}}
+					</span>
+				</a> 
+				<a class="item" href="#">
+					Top Up
+					<span class="item-note">
+						{{topup.TOPUPAmount}}
+					</span>
+				</a> 
+				<a class="item" href="#">
+					Withdraw
+					<span class="item-note">
+						{{topup.WithdrawAmount}}
+					</span>
+				</a> 
+				<div class="item item-button-right">
+					Actions
+					<button class="button button-balanced"  ng-click="editTopUp()" style="float: right;">
+						<i class="icon ion-compose" style="font-size:15px;">&nbsp;Edit</i> 
+					</button>
+				</div><br>
+				<button class="button button-positive" ng-click="delTopUp(topup.Id)"> {{'Delete'| translate}} </button>
+			</div>
+			<padding><br>
+				<div align="center">
+					<button class="button button-positive" ng-click="myGoBack()">
+						{{'Back' | translate}}
+					</button>
+					<button  ng-disabled="basicPlanForm.$invalid" class="button button-positive" ng-click="next()">
+						{{'Save & Next' | translate}}
+					</button>
+				</div>
+			</padding>
+		</form>
+	</ion-content>        
+</ion-view>

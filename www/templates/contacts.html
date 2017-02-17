@@ -1,0 +1,28 @@
+<ion-view view-title="{{'Contacts'| translate}}">
+	<label class="item item-input" style="top: 44px;">
+	  <i class="icon ion-search placeholder-icon"></i>
+	  <input type="search" placeholder="Search" ng-model="search">
+	</label>
+
+	<ion-nav-buttons side="right">
+		<button class="button btntop" ui-sref="app.editDetail">
+			{{'Add New'| translate}}
+		</button>
+	</ion-nav-buttons>
+	
+	<ion-content on-scroll="getScrollPosition()">
+		<ion-item class="item item-avatar  item-icon-right " ng-repeat="user in userList |  filter: search" style="top: 44px;" ui-sref="app.contactupdate({leadno: user.Leadno,id: user.Id})">
+			<img src="{{user.Leadimage}}">
+			<h2>{{user.ContactName}}</h2>
+		    <h2>Company: {{user.CompanyName}}</h2>
+		    <i class="icon ion-chevron-right"></i>
+		</ion-item>
+	</ion-content>
+		<div class="float-button" ng-show="sttButton" ng-click="scrollToTop()">
+	  		<span class="height-fix">
+		    	<a class="content">
+		      		<i class="ion-ios-arrow-up"> </i>
+		    	</a>
+	  		</span>
+		</div>
+</ion-view>

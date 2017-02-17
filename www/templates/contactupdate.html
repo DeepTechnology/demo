@@ -1,0 +1,173 @@
+<ion-view view-title="{{'Edit Detail ' | translate}}" cache-view="false">
+    <ion-content scroll="true" class="has-header">
+        <ion-header-bar  class="bar-positive">
+            <div class="buttons">
+                <button class="button btntop" ui-sref="app.fna({leadno: updateData.Leadno})" >
+                    {{'FNA'| translate}}  
+                </button>
+                <button class="button btntop" ui-sref="app.newSalesQuote({leadno: updateData.Leadno})" >
+                    {{'NSQ'| translate}} 
+                </button>
+            </div>
+            <h1 class="title"></h1>
+            <div class="buttons">
+                <button class="button btntop" ui-sref="app.preview({leadno: updateData.Leadno})">
+                    {{'Preview'| translate}}  <i class="ion-chevron-right"></i> 
+                </button>
+            </div>
+        </ion-header-bar>
+        <div style="height: 50px;"></div>
+        <div class="row menu-top">
+            <div class="col col-center">
+                <img class="profile-image profile-page" src="{{updateData.Leadimage}}" animate-ratio="fadeIn">
+            </div>
+        </div>
+
+        <div class="profile-userbuttons">
+            <button type="button" class="btn btn-circle blue btn-sm" ng-click="addImage()">{{"Change Photo" | translate}}</button>
+        </div>
+
+        <form name="contactupdateFrom">
+            <div class="item item-divider heading"><center>{{'Contact Information' | translate}}</center></div>
+            <div class="list"><!--  <img src="updateData.Leadimage" id="circle"> -->
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Name:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" ng-model="updateData.ContactName" placeholder="Fill Your User Name" required>                                                                        
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Other Name:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" ng-model="updateData.OtherName" placeholder="Other Name">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Company:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" ng-model="updateData.CompanyName" placeholder="Company Name">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Job Title:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" ng-model="updateData.JobTitle" placeholder="Title">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Date of Birth:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="date" ng-model="updateData.BirthdDate" placeholder="For e.g 19/04/1980">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Email Address:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="email" ng-model="updateData.Email" placeholder="for e.g kamseng@yahoo.com">
+                </label>
+                <label class="item item-input item-select">
+                    <span class="input-label">{{'Gender:' | translate}}<span style="color: red;">*</span></span>
+                    <select ng-model="updateData.Gender">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Facebook:' | translate}}</span>
+                    <input type="text" ng-model="updateData.FacebookID" placeholder="for e.g www.facebook.com/Wong Kam Seng">
+                </label>
+                <div class="item item-divider heading"><center>{{'Corresponding Address' | translate}}</center></div>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Address 1:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" ng-model="updateData.Address1" placeholder="Type Your Address">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Address 2:' | translate}}</span>
+                    <input type="text" ng-model="updateData.Address2" placeholder="Type Your Address">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Address 3:' | translate}}</span>
+                    <input type="text" ng-model="updateData.Address3" placeholder="Type Your Address">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'City:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" ng-model="updateData.CityCode" placeholder="Type Your City">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Post Code:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="text" ng-model="updateData.PostalCode" placeholder="for e.g 68100">
+                </label>
+                <label class="item item-input item-select">
+                    <span class="input-label" >{{'Area:' | translate}}<span style="color: red;">*</span></span>
+                    <select ng-model="updateData.StateCode" >
+                        <option selected >{{'Select' | translate}}</option>
+                        <option value="0017">Bali</option>
+                        <option value="0016">Banten</option>
+                        <option selected="selected" value="0007">Bengkulu</option>
+                        <option value="0014">DI Yogyakarta</option>
+                        <option value="0011">DKI Jakarta</option>
+                        <option value="0028">Gorontalo</option>
+                        <option value="0005">Jambi</option>
+                        <option value="0012">Jawa Barat</option>
+                        <option value="0013">Jawa Tengah</option>
+                        <option value="0015">Jawa Timur</option>
+                        <option value="0020">Kalimantan Barat</option>
+                        <option value="0022">Kalimantan Selatan</option>
+                        <option value="0021">Kalimantan Tengah</option>
+                        <option value="0023">Kalimantan Timur</option>
+                        <option value="0009">Kepulauan Bangka Belitung</option>
+                        <option value="0010">Kepulauan Riau</option>
+                        <option value="0008">Lampung</option>
+                        <option value="0030">Maluku</option>
+                        <option value="0031">Maluku Utara</option>
+                        <option value="0018">Nusa Tenggara Barat</option>
+                        <option value="0019">Nusa Tenggara Timur</option>
+                        <option value="0033">Papua</option>
+                        <option value="0032">Papua Barat</option>
+                        <option value="0004">Riau</option>
+                        <option value="0029">Sulawesi Barat</option>
+                        <option value="0026">Sulawesi Selatan</option>
+                        <option value="0025">Sulawesi Tengah</option>
+                        <option value="0027">Sulawesi Tenggara</option>
+                        <option value="0024">Sulawesi Utara</option>
+                        <option value="0003">Sumatera Barat</option>
+                        <option value="0006">Sumatera Selatan</option>
+                        <option value="0002">Sumatera Utara</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <span class="input-label" >{{'Country:' | translate}}<span style="color: red;">*</span></span>
+                    <select ng-model="updateData.CountryCode">
+                        <option selected>{{'Select' | translate}}</option>
+                        <option value="US">Amerika Serikat</option>
+                        <option value="ID">Indonesia</option>
+                        <option value="SG">Singapura</option>
+                    </select>
+                </label>
+                <div class="item item-divider heading"><center>{{'Tel. / Mobile' | translate}}</center></div>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Mobile Phone:' | translate}}<span style="color: red;">*</span></span>
+                    <input type="tel" ng-model="updateData.Mobileno" placeholder="for e.g. 60126728888">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Office Phone:' | translate}}</span>
+                    <input type="tel" ng-model="updateData.OfficeTelephone" placeholder="for e.g. 0128881911">
+                </label>
+                <div class="item item-divider heading"><center>{{'Lead Details' | translate}}</center></div>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{'Lead No:' | translate}}</span>
+                    <input type=""  readonly="" ng-model="updateData.Leadno" placeholder="">
+                </label>
+                <label class="item item-input item-select">
+                    <span class="input-label">{{'Lead Status:' | translate}}<span style="color: red;">*</span></span>
+                    <select ng-model="updateData.LeadStatus">
+                        <option selected>{{'Select' | translate}}</option>
+                        <option value="C">Contacted</option>
+                        <option selected="selected" value="N">New Lead</option>
+                        <option value="U">Not Qualified</option>
+                        <option value="Q">Qualified</option>
+                    </select>
+                </label>
+                <padding><br>
+                    <div align="center">
+                        <button ng-click="Cancel()" class="button button-positive ">
+                            {{'Cancel' | translate}}
+                        </button>
+                        <button ng-click="Update()" class="button button-positive ">
+                            {{'Update' | translate}}
+                        </button>
+                    </div>
+                </padding>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

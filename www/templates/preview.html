@@ -1,0 +1,108 @@
+<ion-view hide-nav-bar="true">
+    <ion-header-bar align-title="center" class="bar bar-positive br-header">
+        <div class="buttons">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+            <div style="margin-left: 20px;" class="item-input-inset" ng-if="hasFilter">
+                <label class="item-input-wrapper textbox-search">
+                    <i class="icon ion-ios7-search placeholder-icon"></i>
+                    <input type="search" placeholder="Search" ng-model="searchText" ng-keyup="filterProduct(searchText);">
+                </label>
+            </div>
+        </div>
+        <h1 class="title" ng-show="!hasFilter">{{'Preview'| translate}}</h1>
+        <div class="buttons">
+            <a data-tap-disabled="true" class=" button button-icon icon positive" ng-click="openFilters(hasFilter);" ng-class="{'ion-ios-search-strong':!hasFilter,'ion-close-circled':hasFilter}" style="z-index:9999;"></a>
+        </div>
+    </ion-header-bar>
+    <ion-content scroll="true">
+        <ion-header-bar  class="bar-positive">
+            <div class="buttons">
+                <button class="button btntop" ui-sref="app.contactupdate({leadno: previewList[0].Leadno, Id:previewList[0].Id})">
+                    {{'Edit Contact'| translate}}  
+                </button>
+                <button class="button btntop" ui-sref="app.fna({leadno: previewList[0].Leadno})" >
+                    {{'FNA'| translate}} 
+                </button>
+                <button class="button btntop" ui-sref="app.newSalesQuote({leadno: previewList[0].Leadno})" >
+                    {{'NSQ'| translate}}  
+                </button>
+            </div>
+            <h1 class="title"></h1>
+            <div class="buttons">
+                <button class="button btntop">
+                    {{'Preview'| translate}}  
+                </button>
+            </div>
+        </ion-header-bar>
+        <div style="height: 44px;"></div>
+        <div class="item item-divider heading"><center>Sales Proposal</center></div>
+        <div class="item-accordion" ng-repeat="proposal in prop | filter: searchProduct">
+            <a class="{active: isGroupShown($index)} item item-divider" ng-click="toggleGroup($index)">
+                <i class = "icon" ng-class="isGroupShown($index) ? 'ion-ios-minus-outline' : 'ion-plus-circled'" style="float:right; color:#797474;"></i>
+                ProductName:<br>
+                <h3 style="color:#4c87b9;">{{proposal.ProductName}}</h3>
+            </a>
+            <div ng-show="isGroupShown($index)">
+                <a class="item " >
+                    Product Code:
+                    <span class="badge ">{{proposal.ProductCode}}</span>
+                </a>
+                <a class="item ">
+                    Prop No:
+                    <span class="badge">{{proposal.QuoteNo}}</span>
+                </a>
+                <a class="item " >
+                    Prop Date:
+                    <span class="badge">{{proposal.ProposalStateDate | date:'yyyy-MM-dd'}}</span>
+                </a>
+                <a class="item " >
+                    Sum Covered:
+                    <span class="badge">{{proposal.CoverUnit}}</span>
+                </a>
+                <a class="item " >
+                    Annual Premium:
+                    <span class="badge">{{proposal.AnnualPremium}}</span>
+                </a>
+                <a class="item " >
+                    Installment Premium:
+                    <span class="badge">{{proposal.InstallmentPremium}}</span>
+                </a>
+            </div>
+        </div>
+        <div class="item item-divider heading"><center>Sales Quote</center></div>
+        <div class="item-accordion" ng-repeat="sales in quo | filter: searchProduct">
+            <a class="{active: isGroupShown($index)} item item-divider" ng-click="toggleGroup($index)">
+                <i class = "icon" ng-class="isGroupShown($index) ? 'ion-ios-minus-outline' : 'ion-plus-circled'" style="float:right; color:#797474;"></i>
+                ProductName:<br>
+                <h3 style="color:#4c87b9;">{{sales.ProductName}}</h3>
+            </a>
+            <div ng-show="isGroupShown($index)">
+                <a class="item " href="#">
+                    Product Code:
+                    <span class="badge">{{sales.ProductCode}}</span>
+                </a>
+                <a class="item " href="#">
+                    Quote No:
+                    <span class="badge">{{sales.QuoteNo}}</span>
+                </a>
+                <a class="item " href="#">
+                    Quote Date
+                    <span class="badge">{{sales.ProposalStateDate | date:'yyyy-MM-dd'}}</span>
+                </a>
+                <a class="item " href="#">
+                    Sum Covered:
+                    <span class="badge">{{sales.CoverUnit}}</span>
+                </a>
+                <a class="item " href="#">
+                    Annual Premium:
+                    <span class="badge">{{sales.AnnualPremium}}</span>
+                </a>
+                <a class="item " href="#">
+                    Installment Premium:
+                    <span class="badge">{{sales.InstallmentPremium}}</span>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
